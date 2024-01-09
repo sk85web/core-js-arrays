@@ -480,8 +480,15 @@ function getIndicesOfOddNumbers(numbers) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+function getHexRGBValues(arr) {
+  const res = arr.map((el) => {
+    const num = el;
+    if (num.toString(16).length !== 6) {
+      return `#${num.toString(16).toUpperCase().padStart(6, 0)}`;
+    }
+    return `#${num.toString(16).toUpperCase()}`;
+  });
+  return res;
 }
 
 /**
